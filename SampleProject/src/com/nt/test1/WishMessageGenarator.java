@@ -5,4 +5,7 @@ public class WishMessageGenarator {
 		return "Hello"+user;
 	}
 
+	WishMessageGenarator msg=new WishMessageGenarator();
+    
+
 }
