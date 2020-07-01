@@ -6,8 +6,14 @@ public class DatePrint {
 	  public Date printDate() {
 			return new Date();
 		}
-		public static void main(String[] args) {
-			
-    System.out.println("abc123");
+		
+     public void m1() {
+			System.out.println("Printdate m1 method");
 		}
-	}
+  public static void main(String[] args) {
+	 System.out.println("Hello");
+}
+  
+}
+
+
