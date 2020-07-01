@@ -13,8 +13,12 @@ public class DatePrint {
      public void m2() {
 			System.out.println("Printdate m2 method");
 		}
+
      public void m4() {
 			System.out.println("Printdate m4 method");
+     }
+     public void m3() {
+			System.out.println("DatePrint.m3()");
 		}
 
 
