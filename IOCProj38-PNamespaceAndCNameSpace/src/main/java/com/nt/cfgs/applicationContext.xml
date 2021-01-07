@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- configure dob-->
+<bean id="dob" class="java.util.Date" p:date="30" p:month="9" p:year="100"/>
+
+<!-- configure dos-->
+<bean id="dos" class="java.util.Date" p:date="12" p:month="10" p:year="112"/>
+
+<bean id="dept" class="com.nt.beans.Department" c:dno="10" c:dname="science" c:dos-ref="dos"/> 
+<!-- <bean id="emp" class="com.nt.beans.Employee" p:eno="100" p:ename="mahi" p:dob-ref="dob" p:dept-ref="dept"/>
+ -->
+ 
+ <bean id="emp" class="com.nt.beans.Employee" p:eno="100" p:ename="mahi" p:dob-ref="dob" >
+   <property name="dept" ref="dept"/>
+ 
+ </bean>
+ 
+</beans>

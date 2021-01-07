@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+<!-- configure dataSource -->
+<bean id="drds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<property name="driverClassName" value="${jdbc.driver}"/>
+<property name="url" value="${jdbc.url}"/>
+<property name="username" value="${jdbc.user}"/>
+<property name="password" value="${jdbc.pwd}"></property>
+ </bean>
+
+ <!-- configure Predefined  PropertyPlaceholderConfigurer class-->
+ <bean id="pphc" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+  <property name="locations">
+    <array>
+      <value>com/nt/properties/jdbc2.properties</value>
+      <value>com/nt/properties/jdbc1.properties</value>
+    </array>
+  </property> 
+    
+</bean>
+ 
+ <!-- properties bean configuration -->
+ <bean id="prps" class="com.nt.beans.Properties1">
+   <property name="osName" value="${os.name}"/>
+   <!-- <property name="path" value="${path}"/> -->
+ </bean>
+ 
+ 
+ <!-- configure userDefined  -->
+ <!-- <context:property-placeholder location="com/nt/properties/jdbc2.properties,com/nt/properties/jdbc1.properties"/>
+  -->
+
+<!-- configure DataSource to CustomerDAOImpl -->
+<bean id="custDAO" class="com.nt.dao.CustomerDAOImpl">
+  <!--  constructor injection -->
+  <constructor-arg ref="drds"/>
+</bean>
+
+<!-- configure CustomerDAOImpl to CustomerServiceImpl -->
+<bean id="custService" class="com.nt.service.CustomerMgmtServiceImpl">
+  <!--  constructor injection -->
+  <constructor-arg ref="custDAO"/>
+</bean>
+
+<!-- configure CustomerServiceMgmt to MainController -->
+<bean id="controller" class="com.nt.controller.MainController">
+  <!--  constructor injection -->
+  <constructor-arg ref="custService"/>
+</bean>
+
+ 
+
+
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<!-- cfg properties file -->
+<context:property-placeholder location="com/nt/commons/Ds.properties"/>
+<!-- configure DataSource -->
+<bean id="hkds" class="com.zaxxer.hikari.HikariDataSource">
+   <property name="driverClassName" value="${jdbc.driver}"/>
+   <property name="jdbcUrl" value="${jdbc.url}"/>
+   <property name="username" value="${jdbc.user}"/>
+   <property name="password" value="${jdbc.pwd}"/>
+   <property name="maximumPoolSize" value="${pool.maxPoolSize}"/> 
+   <property name="minimumIdle" value="${pool.minIdle}"/>
+ </bean>
+ 
+ <!-- configure DAO class -->
+<bean id="dao" class="com.nt.dao.CoronaDAOImpl">
+  <constructor-arg ref="hkds"/>
+</bean> 
+<!-- configure service class -->
+<bean id="service" class="com.nt.service.CoronaServiceImpl">
+  <constructor-arg ref="dao"/>
+</bean>
+</beans>
