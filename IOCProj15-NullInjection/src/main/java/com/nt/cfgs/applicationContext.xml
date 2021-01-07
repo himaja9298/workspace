@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- configure dob bean -->
+<bean id="dob" class="java.util.Date">
+  <property name="year" value="70"/>
+  <property name="month" value="11"/>
+  <property name="date" value="10"/>
+ </bean>
+ <!-- configure doj bean -->
+ <bean id="doj" class="java.util.Date">
+  <property name="year" value="110"/>
+  <property name="month" value="12"/>
+  <property name="date" value="9"/>
+ </bean>
+ <!-- configure dom bean -->
+ <bean id="dom" class="java.util.Date">
+  <property name="year" value="114"/>
+  <property name="month" value="17"/>
+  <property name="date" value="10"/>
+ </bean>
+ 
+ <!-- personInfo bean configuration with rajaInfo as name-->
+ <bean id="rajaInfo" class="com.nt.beans.PersonInfo">
+   <constructor-arg value="44555566677888"/>
+   <constructor-arg value="mahi"/>
+   <constructor-arg ref="dob"/>
+   <constructor-arg ref="doj"/>
+   <constructor-arg ref="dom"/>
+   </bean>
+   
+   <!--peersonInfo bean configuration with raviInfo as name-->
+   <bean id="raviInfo" class="com.nt.beans.PersonInfo">
+   <constructor-arg value="44555566657858"/>
+   <constructor-arg value="manasa"/>
+   <constructor-arg><null/></constructor-arg>
+   <constructor-arg ref="doj"/>
+   <constructor-arg><null/></constructor-arg>
+   
+   </bean>
+   
+</beans>
