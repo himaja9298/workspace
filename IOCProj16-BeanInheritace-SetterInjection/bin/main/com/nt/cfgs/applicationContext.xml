@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- configure parent bean -->
+	<bean id="baseBean" class="com.nt.beans.TwoWheelerInfo"
+		abstract="true">
+		<property name="engineCC" value="1500" />
+		<property name="model" value="activa" />
+		<property name="company" value="honda" />
+		<!-- <property name="fuelType" value="petrol"/> -->
+		<property name="fuelType">
+			<null />
+		</property>
+	</bean>
+	<!-- configure child bean as rajaCar -->
+	<bean id="rajaCar" class="com.nt.beans.TwoWheelerInfo"
+		parent="baseBean">
+		<property name="regNo" value="15453466" />
+		<property name="engNo" value="76549" />
+		<property name="color" value="blue" />
+	</bean>
+	<!-- configure child bean as raviInfo -->
+	<bean id="raviCar" class="com.nt.beans.TwoWheelerInfo"
+		parent="baseBean">
+		<property name="regNo" value="15453477" />
+		<property name="engNo" value="76550" />
+		<property name="color" value="red" />
+	</bean>
+</beans>

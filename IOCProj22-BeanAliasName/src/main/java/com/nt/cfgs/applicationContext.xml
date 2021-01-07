@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+<!-- configure ProfessionalCricketr class -->
+<!-- <bean id="kohli" class="com.nt.beans.ProfessionalCricketer" name="crct,crct1">
+ -->  
+  <bean id="kohli" class="com.nt.beans.ProfessionalCricketer">
+    <constructor-arg value="Kohli"/>
+     <constructor-arg>
+       <!-- inner bean configuration -->
+       <bean class="com.nt.beans.CricketBat"/>
+     </constructor-arg>
+ 
+ </bean>
+ <alias name="kohli" alias="kh"/>
+ <alias name="kh" alias="kh1"/>
+<!-- configure ProfessionalCricketr class -->
+<bean id ="dhoni" class="com.nt.beans.ProfessionalCricketer" name="crct2,crct3">
+  <constructor-arg value="Kohli"/>
+  <constructor-arg>
+     <!-- inner bean configuration -->
+     <bean class="com.nt.beans.CricketBat"/>
+     
+  </constructor-arg>
+ </bean>
+<alias name="dhoni" alias="dh"/>
+<alias name="dh" alias="dh1"/>
+</beans>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+   <!-- configure dependent class -->
+   <!-- <bean id="courier" class="com.nt.comp.FirstFlight"/> -->
+   <bean id="fflight" class="com.nt.comp.FirstFlight" primary="true"/>
+   <bean id="dtdc" class="com.nt.comp.DTDC"/>
+   <bean id="bdart" class="com.nt.comp.BlueDart" />
+   <!-- configure target class -->
+   <bean id="fpt" class="com.nt.comp.Flipkart"/>
+
+  <!-- configure target bean-->
+  <!-- <bean id="fpkt" class="com.nt.comp.Flipkart" autowire="byName"/> -->
+  <!-- <bean id="fpkt" class="com.nt.comp.Flipkart" autowire="byType"/>equals to setter injection
+ --> <!-- <bean id="fpkt" class="com.nt.comp.Flipkart" autowire="constructor"/> -->
+  
+     
+</beans>

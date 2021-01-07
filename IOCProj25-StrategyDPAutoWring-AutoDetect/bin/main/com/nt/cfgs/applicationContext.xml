@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+ 
+ 
+ <!-- configure dependent class -->
+   <!-- <bean id="courier" class="com.nt.comp.FirstFlight"/> -->
+   <!-- <bean id="courier" class="com.nt.comp.FirstFlight" autowire-candidate="false"/> -->
+   
+   <bean id="courier" class="com.nt.comp.FirstFlight" autowire-candidate="false" />
+   <bean id="dtdc" class="com.nt.comp.DTDC"/>
+   <bean id="bdart" class="com.nt.comp.BlueDart" autowire-candidate="false" />
+   
+  <!-- configure target bean-->
+ <!--  <bean id="fpkt" class="com.nt.comp.Flipkart" autowire="autodetect"> -->
+ <!-- <bean id="fpkt" class="com.nt.comp.Flipkart" autowire="byName"> -->
+ <!-- <bean id="fpkt" class="com.nt.comp.Flipkart" autowire="byType"> -->
+  <bean id="fpkt" class="com.nt.comp.Flipkart" autowire="byType">
+    <constructor-arg ref="bdart"/>
+    <!-- <property name="number" value="12345"/> -->
+   </bean>
+
+</beans>

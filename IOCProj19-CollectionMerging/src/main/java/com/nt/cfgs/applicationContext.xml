@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  default-merge="true" xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- configure bean with name sInfo -->
+<bean id="sFirstInfo" class="com.nt.beans.SubjectsInfo">
+  <property name="subjects">
+    <set>
+      <value>c</value>
+      <value>m1</value>
+      <value>English</value>
+      <value>Drawing</value>
+     </set>
+  </property>
+ </bean>
+
+<!-- configure bean   sInfo -->
+<bean id="sSecondInfo" class="com.nt.beans.SubjectsInfo" parent="sFirstInfo">
+  <property name="subjects">
+    <set>
+      <value>CN</value>
+      <value>DS</value>
+      <value>OOP</value>
+      <value>DM</value>
+     </set>
+  </property>
+ </bean>
+  
+
+<!--   CSE subjects bean-->
+  <!-- <bean  class="com.nt.beans.SubjectsInfo">
+  <property name="subjects">
+    <set>
+      <value>c</value>
+      <value>m1</value>
+      <value>English</value>
+      <value>Drawing</value>
+     </set>
+  </property>
+ </bean>
+  -->
+  <!--Electronics subjects bean-->
+<!--  <bean class="com.nt.beans.SubjectsInfo">
+  <property name="subjects">
+    <set>
+      <value>EDC</value>
+      <value>NT</value>
+     </set>
+  </property>
+ </bean>
+ 
+ --> <!--civil subjects bean-->
+ <!-- <bean class="com.nt.beans.SubjectsInfo">
+  <property name="subjects">
+    <set>
+      <value>FM</value>
+      <value>SM</value>
+       <value>Surveying</value>
+     </set>
+  </property>
+ </bean>
+ --> 
+</beans>
