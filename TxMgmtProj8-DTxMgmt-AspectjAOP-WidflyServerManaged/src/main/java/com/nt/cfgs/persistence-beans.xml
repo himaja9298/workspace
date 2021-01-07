@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<context:component-scan base-package="com.nt.DAO"/>
+
+<jee:jndi-lookup id="mysqlds1" jndi-name="java:/MySqlDS1"/>
+<jee:jndi-lookup id="mysqlds2" jndi-name="java:/MySqlDS2"/>
+
+
+     <!-- configure Jdbc template for mysql1-->
+     <bean id="mysql1jt" class="org.springframework.jdbc.core.JdbcTemplate">
+       <constructor-arg ref="mysqlds1"/>
+     </bean>
+     
+     <!-- jdbc template for mysql2-->
+     <bean id="mysql2jt" class="org.springframework.jdbc.core.JdbcTemplate">
+       <constructor-arg ref="mysqlds2"/>
+     </bean>
+     
+</beans>

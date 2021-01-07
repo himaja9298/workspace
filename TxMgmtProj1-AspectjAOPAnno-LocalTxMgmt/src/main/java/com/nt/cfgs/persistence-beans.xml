@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+<context:component-scan base-package="com.nt.DAO"/>
+
+<!-- Datasource cfg -->
+   <bean id="hdrds" class="com.zaxxer.hikari.HikariDataSource">
+     <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+     <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/mydata"/>
+     <property name="username" value="root"/>
+     <property name="password" value="root"/>
+     <property name="maxLifetime" value="10"/>
+     <property name="connectionTimeout" value="200000"/>
+     <property name="maximumPoolSize" value="20"/>
+</bean>
+<!-- cfg jdbc template -->
+<bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+  <constructor-arg ref="hdrds"/>
+</bean>
+</beans>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+<context:component-scan base-package="com.nt.DAO"/>
+
+<!-- XADatasource for mysql1 cfg -->
+   <bean id="XAds1" class="com.atomikos.jdbc.AtomikosDataSourceBean">
+     <property name= "uniqueResourceName" value="mysqlXA1"/>
+     <property name="xaDataSourceClassName" value="com.mysql.cj.jdbc.MysqlXADataSource"/>
+     <property name="xaProperties">
+        <props>
+           <prop key="databaseName">mydata</prop>
+           <prop key="user">root</prop>
+           <prop key="password">root</prop>
+           <prop key="URL">jdbc:mysql://localhost:3306/mydata</prop>
+       </props>
+     </property>
+     </bean>
+     
+     <!-- XADatasource for mysql2 cfg -->
+   <bean id="XAds2" class="com.atomikos.jdbc.AtomikosDataSourceBean">
+     <property name= "uniqueResourceName" value="mysqlXA2"/>
+     <property name="xaDataSourceClassName" value="com.mysql.cj.jdbc.MysqlXADataSource"/>
+     <property name="xaProperties">
+        <props>
+           <prop key="databaseName">mydata1</prop>
+           <prop key="user">root</prop>
+           <prop key="password">root</prop>
+           <prop key="URL">jdbc:mysql://localhost:3306/mydata1</prop>
+       </props>
+     </property>
+     </bean>
+     
+     <!-- configure Jdbc template for mysql1-->
+     <bean id="mysql1jt" class="org.springframework.jdbc.core.JdbcTemplate">
+       <constructor-arg ref="XAds1"/>
+     </bean>
+     
+     <!-- jdbc template for mysql2-->
+     <bean id="mysql2jt" class="org.springframework.jdbc.core.JdbcTemplate">
+       <constructor-arg ref="XAds2"/>
+     </bean>
+     
+</beans>
