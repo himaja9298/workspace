@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+   <!-- configure dependent class -->
+   <!-- <bean id="crr" class="com.nt.comp.FirstFlight"/> -->
+   <bean id="std" class="com.nt.comp.Student">
+   <!-- setter injection -->
+   <property name="sno" value="100"/>
+   <property name="sname" value="mahi"/>
+   <property name="sadd"  value="hyd"/>
+   <property name="avg" value="65.7"/>
+    <!-- constructor  injection -->
+    <!-- <constructor-arg  index="0" value="1000"/>
+    <constructor-arg  index="1" value="mahi"/>
+    <constructor-arg  index="2" value="hyd"/>
+    <constructor-arg  index="3" value="92"/> 
+     -->
+    
+    </bean>    
+
+     
+ </beans>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+   <!-- configure dependent class -->
+   <!-- <bean id="crr" class="com.nt.comp.FirstFlight"/> -->
+   <bean id="mrk" class="com.nt.beans.Marks">
+   
+   <!-- setter injection -->
+   <!-- <property name="sno" value="100"/>
+   <property name="sname" value="mahi"/>
+   <property name="sadd"  value="hyd"/>
+   <property name="avg" value="65.7"/> -->
+    
+    <!-- constructor  injection -->
+    <constructor-arg index="1" value="80"/>
+    <constructor-arg index="2" value="90"/>
+    <constructor-arg index="0" value="70"/>
+   </bean>
+    
+    <!-- Configure bean -->
+    <bean id="emp" class="com.nt.beans.Employee">
+    
+    <!-- constructor injection -->
+    <constructor-arg  type="int" value="100"/>
+    <constructor-arg  type="java.lang.String" value="mahi"/>
+    <constructor-arg  type="float" value="50000"/>
+    </bean>
+    
+    <!-- Configure bean -->
+    <bean id="std" class="com.nt.beans.Student">
+    
+    <!-- constructor injection -->
+    <constructor-arg name="sno" value="100" index="0" type="int"/>
+    <constructor-arg name="sname" value="mahi"/>
+    <constructor-arg name="sadd" value="hyd"/>
+    <constructor-arg name="total" value="900"/>
+    </bean>
+     
+ </beans>
