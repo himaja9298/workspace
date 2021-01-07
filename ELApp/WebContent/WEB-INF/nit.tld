@@ -1,0 +1,11 @@
+<taglib version="2.0" xmlns="http://java.sun.com/xml/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+ <description>EL Function</description>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>2..0</jsp-version>
+  <uri>http://ELTags/nit</uri>
+  <short-name>nt</short-name>
+<function>
+  <name>GetWishMessage</name>
+ <function-class>src.com.nt.elfx.WishMessageGenarator</function-class>  <function-signature>java.lang.Strin say hello(java.lang.String)</function-signature>
+</function>
+</taglib>

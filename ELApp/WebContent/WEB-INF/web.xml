@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+  <display-name>ELObjects</display-name>
+  <context-param>
+     <param-name>dbuser</param-name>
+     <param-value>Scott</param-value>
+  </context-param>
+  <context-param>
+     <param-name>pwd</param-name>
+     <param-value>tiger</param-value>
+   </context-param>
+  <welcome-file-list>
+    <welcome-file>ELObjects1.jsp</welcome-file>
+  </welcome-file-list>
+ </web-app>

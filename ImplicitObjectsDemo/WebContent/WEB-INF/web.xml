@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+  <display-name>Jsp Implicit objectsDemo</display-name>
+  <welcome-file-list>implicit.jsp</welcome-file-list>
+  <context-param>
+    <param-name>p1</param-name>
+    <param-value>val1</param-value>
+  </context-param>
+  <servlet>
+   <servlet-name>xyz</servlet-name>
+   <jsp-file>/implicit.jsp</jsp-file>
+  <init-param>
+     <param-name>p2</param-name>
+     <param-value>val2</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+   <servlet-name>xyz</servlet-name>
+   <url-pattern>/testurl</url-pattern>
+  </servlet-mapping>
+ </web-app>

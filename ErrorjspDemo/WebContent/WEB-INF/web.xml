@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+  <display-name>Jsp-ErrorPages</display-name>
+  <error-page>
+      <exception-type>java.lang.NullPointerException</exception-type>
+      <location>/error.jsp</location>
+   </error-page>
+   <error-page>
+      <exception-type>java.lang.NumberFormatException</exception-type>
+      <location>/error2.jsp</location>
+   </error-page>
+  </web-app>
