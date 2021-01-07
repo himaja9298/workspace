@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+  <display-name>Composite view with composite include</display-name>
+  <welcome-file-list>
+     <welcome-file>page1.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

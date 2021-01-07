@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+  <welcome-file-list>
+     <welcome-file>test.jsp</welcome-file>
+  </welcome-file-list>
+   <!-- <jsp-config>
+     <tag-lib>
+        <tag-lib-uri>http://nit.com/jsp/nit</tag-lib-uri>
+        <tag-lib-location>/WEB-INF/nit.tld</tag-lib-location>
+     </tag-lib>
+   </jsp-config>
+ --> </web-app>
