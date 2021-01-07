@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="SpringMVCProj-12-LayeredApp-ListEmployee">
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <property name="context-root" value="SpringMVCProj-12-LayeredApp-ListEmployee"/>
+        <property name="java-output-path" value="/SpringMVCProj-12-LayeredApp-ListEmployee/bin/default"/>
+    </wb-module>
+</project-modules>
