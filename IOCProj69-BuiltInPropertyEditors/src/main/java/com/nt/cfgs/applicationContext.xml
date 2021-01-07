@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<bean id="pInfo" class="com.nt.beans.PersonInfo">
+   <property name="aadharno" value="2345236734566745"/>
+   <property name="name" value="hari"/>
+   <property name="addrs" value="hyd"/>
+   <property name="date" value="10/4/1991"/>
+   <property name="salary" value="23000.f"/>
+   <property name="countryCurrency" value="INR"/>
+   <property name="currentLocale" value="hi-IN"/>
+   <property name="fburl" value="http://facebook.com/userid=raja"/>
+   <property name="inputFile" value="classpath:/photo.jpg"/>
+   <property name="javaClass" value="java.lang.System"/>
+   <property name="javaClasses" value="java.lang.System,java.util.Date"/>
+   <property name="photoPath" value="E://files//photo.jpg"/>
+   <property name="props" value="name=raja,age=20,addrs=hyd"/>
+   <property name="timeZone" value="Asia/Calcutta"/>
+
+</bean>
+
+</beans>

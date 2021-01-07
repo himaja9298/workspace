@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+   <!-- configure dependent class -->
+   <!-- <bean id="crr" class="com.nt.comp.FirstFlight"/> -->
+   <bean id="crr1" class="com.nt.comp.FirstFlight"/>
+   <bean id="crr2" class="com.nt.comp.DTDC"/>
+
+   <!-- configure target class -->
+   <bean id="fpt" class="com.nt.comp.Flipkart">
+
+      <!-- setter injection -->
+      <property name="courier1" ref="crr1"/>
+      <property name="courier2" ref="crr2"/>
+       <!-- constructor  injection -->
+   <!--    <constructor-arg name="courier1" ref="crr1"/>
+      <constructor-arg name="courier2" ref="crr2"/> 
+ -->   </bean>
+</beans>
