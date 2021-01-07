@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+ <welcome-file-list>
+      <welcome-file>input.html</welcome-file>
+  </welcome-file-list>
+ <servlet>
+    <servlet-name>main</servlet-name>
+    <servlet-class>com.nt.servlet.MainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>main</servlet-name>
+    <url-pattern>/mainurl</url-pattern>
+  </servlet-mapping>
+ <servlet>
+    <servlet-name>error</servlet-name>
+    <servlet-class>com.nt.servlet.ErrorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>error</servlet-name>
+    <url-pattern>/errorurl</url-pattern>
+  </servlet-mapping>
+</web-app>
