@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+   <!-- Handler Mapping cfg -->
+  <bean id="suhm"   class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+      <property name="mappings">
+           <props>
+               <prop key="welcome">shc</prop> 
+               <prop key="wish">wmc</prop>  <!-- mapping incoming uri with handler/controler class -->
+           </props>
+      </property>
+    </bean>  
+    
+      <!-- Configure controller -->
+      <bean id="shc"  class="com.nt.controller.ShowHomeController"/>
+      <bean id="wmc"  class="com.nt.controller.WishController">
+         <constructor-arg ref="wishService"/>  
+      </bean>
+      <bean id="wishService" class="com.nt.service.WishMsgServiceImpl"/>
+     <!-- View Resolver -->
+    <bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+        <!-- <property name="basename" value="views"/> --> <!--if we place views.properties in src/main/java folder-->
+        <property name="basename" value="com/nt/commons/views"/> <!--if we place views.properties in separate package of src/main/java folder-->
+     </bean>
+     
+     
+      </beans>
