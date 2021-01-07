@@ -1,0 +1,10 @@
+#test profile
+spring: 
+ datasource: 
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql:///mydata
+  username: root
+  password: root
+  type: org.apache.commons.dbcp2.BasicDataSource
+
+  

@@ -1,0 +1,46 @@
+#profiles activation
+spring: 
+ profiles: 
+  active: production
+  
+---
+
+#dev profile
+spring: 
+ datasource: 
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql:///mydata
+  username: root
+  password: root
+  type: com.mchange.v2.c3p0.ComboPooledDataSource
+---
+
+#test profile
+spring: 
+ datasource: 
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql:///mydata
+  username: root
+  password: root
+  type: org.apache.commons.dbcp2.BasicDataSource
+---
+
+#uat profile
+spring: 
+ datasource: 
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/mydata1
+  username: root
+  password: root
+  type: org.apache.commons.dbcp2.BasicDataSource
+---
+
+#production profile
+spring: 
+ datasource: 
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/mydata1
+  username: root
+  password: root
+  type: com.zaxxer.hikari.HikariDataSource
+  

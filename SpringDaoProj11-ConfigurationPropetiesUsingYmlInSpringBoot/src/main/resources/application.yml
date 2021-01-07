@@ -1,0 +1,40 @@
+#info:
+# per:
+#   pid: 101
+#   name: mahi
+#   address: hyd 
+#   
+
+person: 
+ info: 
+  pid: 101
+  pname: mahesh
+  #array properties
+  marks1: 
+   - 90
+   - 98
+   - 97
+  #List properties
+  marks2: 
+   - 95
+   - 96
+   - 99
+  #Set properties
+  marks3: 
+   - 94
+   - 93
+   - 92
+  #Map properties
+  phones: 
+   residence: 555666444
+   home: 333222666
+   office: 444666888   
+  #HAS-A-propeties 
+  job:
+   jobid: 121
+   jobname: developer
+   salary: 35000
+   skills: 
+    - java
+    - spring
+     

@@ -1,0 +1,4 @@
+#profiles activation
+spring: 
+ profiles: 
+  active: production
