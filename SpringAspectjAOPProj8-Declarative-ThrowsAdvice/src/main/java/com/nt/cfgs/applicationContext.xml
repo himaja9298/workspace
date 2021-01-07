@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!-- configure target class -->
+<bean id="target"  class="com.nt.target.ShoppingStore"/>
+
+<!-- configure aspect class -->
+<bean id="cel" class="com.nt.advice.CommonExceptionLogger"/>
+
+<!-- enable aop -->
+<aop:config>
+ <!-- configure point cuts  -->
+  <aop:pointcut expression="execution(float com.nt.target.ShoppingStore.generateBill(..)) " id="shp"/>
+  <!-- configure spring bean as aspect -->
+  <aop:aspect ref="cel">
+    <aop:after-throwing  throwing="ex" method="exceptionLogger" pointcut-ref="shp"/>
+  </aop:aspect>
+ </aop:config>
+
+
+
+</beans>

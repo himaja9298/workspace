@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!-- configure target class -->
+<bean id="target"  class="com.nt.target.CarShowRoom"/>
+
+<!-- configure aspect class -->
+<bean id="tda" class="com.nt.advice.TestDriveAuditAspect"/>
+
+<!-- enable aop -->
+<aop:config>
+ <!-- configure point cuts  -->
+  <aop:pointcut expression="execution(String com.nt.target.CarShowRoom.sale(..)) and args(model,price,executive)" id="csale"/>
+  <!-- configure spring bean as aspect -->
+  <aop:aspect ref="tda" >
+    <aop:before method="testdrive" pointcut-ref="csale"/>
+  </aop:aspect>
+ </aop:config>
+
+
+
+</beans>

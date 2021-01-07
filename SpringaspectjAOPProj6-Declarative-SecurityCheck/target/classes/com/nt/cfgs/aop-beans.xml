@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+<!-- configure advice class-->
+<bean id="saspect" class="com.nt.aspect.SecurityAspect">
+  <constructor-arg ref="authmanager"/>
+</bean>
+
+<!-- configure pointcut-->
+<aop:config>
+<!-- configure pointcut expression-->
+ <aop:pointcut expression="execution(String com.nt.service.IBankService.*(..))" id="ptc"/>
+
+<!-- configure advice-->
+<aop:aspect ref="saspect">
+  <aop:before method="check" pointcut-ref="ptc"/>
+</aop:aspect>
+
+
+</aop:config>
+</beans>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!-- configure target class -->
+<bean id="target"  class="com.nt.target.IntrestCalculator"/>
+
+<!-- configure aspect class -->
+<bean id="pca" class="com.nt.advice.PerformanceCheckingAspect"/>
+<bean id="ara" class="com.nt.advice.AroundAspect"/>
+<bean id="cache" class="com.nt.advice.CachingAspect"/>
+
+<!-- enable aop -->
+<aop:config>
+<!--  <aop:config  proxy-target-class="true"> -->
+  <!-- configure point cuts  -->
+  <aop:pointcut expression="execution(float com.nt.target.IIntrestCalculator.simpleIntrestAmnt(..))" id="smpl"/>
+  <aop:pointcut expression="execution(float com.nt.target.IIntrestCalculator.*(..))" id="intr"/>
+  <!-- configure spring bean as aspect -->
+  <aop:aspect ref="ara" order="5">
+    <!-- <aop:around method="around" pointcut-ref="smpl"/> -->
+    <aop:around method="around" pointcut-ref="intr"/>
+  </aop:aspect>
+  
+  <aop:aspect ref="pca" order="5">
+    <!-- <aop:around method="monitor" pointcut-ref="smpl"/> -->
+    <!-- <aop:around method="monitor" pointcut="execution(float com.nt.target.IntrestCalculator.simpleIntrestAmnt(..))"/> -->
+    <aop:around method="monitor" pointcut-ref="intr"/>
+  </aop:aspect>
+  
+  <aop:aspect ref="cache" order="5">
+    <aop:around method="caching" pointcut-ref="intr"/>
+  </aop:aspect>
+  
+</aop:config>
+
+
+
+</beans>
